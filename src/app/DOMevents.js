@@ -178,7 +178,9 @@ const DOMevents = () => {
                     if(formTextInput.length > 10){
                         displayAlert("Characters must not exceed 10 letters", "warning")
                     } else {
-                        
+                        newProject(input)
+                        projectCategoryOptions(input)
+                        clearFields()
                     }
                 }
             } else {
