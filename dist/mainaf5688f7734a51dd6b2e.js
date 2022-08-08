@@ -15,38 +15,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "d": () => (/* binding */ d)
 /* harmony export */ });
 var d = document;
-var container = d.getElementById("container");
+var container = d.getElementById('container');
 
 var DOMcontent = function DOMcontent() {
   var navUI = function () {
-    var navbar = d.createElement("nav");
-    var navItems = d.createElement("div");
-    navItems.className = "nav-items";
+    var navbar = d.createElement('nav');
+    var navItems = d.createElement('div');
+    navItems.className = 'nav-items';
     navItems.innerHTML = "\n            <input type=\"button\" class=\"btn\" id=\"nav-menu\">\n            <h1 class=\"nav-logo\">ToDo List</h1>\n        ";
     navbar.appendChild(navItems);
-    var body = d.querySelector("body");
+    var body = d.querySelector('body');
     body.insertAdjacentElement('afterbegin', navbar);
   }();
 
   var sidebarUI = function () {
-    var sidebar = d.createElement("aside");
-    sidebar.setAttribute("id", "sidebar");
-    var sidebarContent = d.createElement("div");
-    sidebarContent.className = "sidebar-content";
-    sidebarContent.setAttribute = "sidebar-content";
+    var sidebar = d.createElement('aside');
+    sidebar.setAttribute('id', 'sidebar');
+    var sidebarContent = d.createElement('div');
+    sidebarContent.className = 'sidebar-content';
+    sidebarContent.setAttribute = 'sidebar-content';
     sidebarContent.innerHTML = "\n            <h2 class=\"sidebar-header\">Projects</h2>\n            <div class=\"list-of-projects\">\n                <div class=\"project-tasks\">\n                    <p>All Tasks</p>\n                </div>\n            </div>\n            <form class=\"sidebar-form\">\n                <input type=\"text\" class=\"set-project-name\" placeholder=\"Enter New Project's Name\">\n                <div class=\"sidebar-btn-wrapper\">\n                    <button class=\"sidebar-form-btn\" id=\"add-project\">Add</button>\n                    <button class=\"sidebar-form-btn\" id=\"cancel-project\">Cancel</button>\n                </div>\n            </form>\n            <button class=\"add-new-project\">Add New Project</button>\n        ";
     sidebar.appendChild(sidebarContent);
     container.appendChild(sidebar);
   }();
 
   var mainContent = function () {
-    var tasksMain = d.createElement("section");
-    tasksMain.setAttribute("id", "tasks-main");
-    var taskHeader = d.createElement("div");
-    taskHeader.className = "task-header";
+    var tasksMain = d.createElement('section');
+    tasksMain.setAttribute('id', 'tasks-main');
+    var taskHeader = d.createElement('div');
+    taskHeader.className = 'task-header';
     taskHeader.innerHTML = "\n            <h2 class=\"name-task\">All Tasks</h2>\n            <button class=\"add-task-btn\">Add Task</button>\n        ";
-    var taskTable = d.createElement("div");
-    taskTable.className = "task-table";
+    var taskTable = d.createElement('div');
+    taskTable.className = 'task-table';
     taskTable.innerHTML = "\n            <div class=\"task-table-head\">\n                <ul class=\"task-header-list\">\n                    <li class=\"input-checkbox-header\"></li>\n                    <li class=\"tasks-col-header\">Task</li>\n                    <li class=\"tasks-col-header\">Due</li>\n                    <li class=\"tasks-col-header\">Project</li>\n                    <li class=\"tasks-col-header\">Priority</li>\n                    <li class=\"controls-header\"></li>\n                </ul>\n            </div>\n            <div class=\"task-table-body\">\n            </div>\n        ";
     tasksMain.appendChild(taskHeader);
     tasksMain.appendChild(taskTable);
@@ -54,12 +54,9 @@ var DOMcontent = function DOMcontent() {
   }();
 
   var addNewTaskForm = function () {
-    var newTaskForm = d.createElement("form");
-    newTaskForm.className = "new-task-form";
-    newTaskForm.innerHTML = "\n            <label for=\"taskName\">Task Name</label>\n            <input type=\"text\" id=\"taskName\">\n            <label for=\"dueDate\">Due Date</label>\n            <input type=\"date\" id=\"dueDate\">\n            <label for=\"projectName\">Project Category</label>\n            <select id=\"projectName\" name=\"Project Name\" aria-label=\"Selection for project categories\">\n            </select>\n            <label for=\"levelImportance\">Priority Level</label>\n            <select id=\"levelImportance\" name=\"importance\" aria-label=\"Selection for project's level of importance\">\n                <option id=\"very-important\" value=\"Very Important\">Very Important</option>\n                <option id=\"important\" value=\"Important\">Important</option>\n                <option id=\"less-important\" value=\"Less Important\">Less Important</option>\n            </select>\n            <div class=\"new-task-form-btn\">\n                <input type=\"button\" class=\"new-task-btn\" id=\"add-task\" value=\"Add Task\">\n                <input type=\"button\" class=\"new-task-btn\" id=\"cancel-task\" value=\"Cancel\">\n            </div>\n        "; // <button class="new-task-btn" id="add-task">Add Task</button>
-    // <button class="new-task-btn" id="cancel-task">Cancel</button>
-
-    var container = d.getElementById("container");
+    var newTaskForm = d.createElement('form');
+    newTaskForm.className = 'new-task-form';
+    newTaskForm.innerHTML = "\n            <label for=\"taskName\">Task Name</label>\n            <input type=\"text\" id=\"taskName\">\n            <label for=\"dueDate\">Due Date</label>\n            <input type=\"date\" id=\"dueDate\">\n            <label for=\"projectName\">Project Category</label>\n            <select id=\"projectName\" name=\"Project Name\" aria-label=\"Selection for project categories\">\n            </select>\n            <label for=\"levelImportance\">Priority Level</label>\n            <select id=\"levelImportance\" name=\"importance\" aria-label=\"Selection for project's level of importance\">\n                <option id=\"very-important\" value=\"Very Important\">Very Important</option>\n                <option id=\"important\" value=\"Important\">Important</option>\n                <option id=\"less-important\" value=\"Less Important\">Less Important</option>\n            </select>\n            <div class=\"new-task-form-btn\">\n                <input type=\"button\" class=\"new-task-btn\" id=\"add-task\" value=\"Add Task\">\n                <input type=\"button\" class=\"new-task-btn\" id=\"cancel-task\" value=\"Cancel\">\n            </div>\n        ";
     container.appendChild(newTaskForm);
   }();
 };
@@ -94,10 +91,10 @@ __webpack_require__.r(__webpack_exports__);
 var editing = false; // Create new project in sidebar
 
 var newProject = function newProject(item) {
-  var addNewProject = document.createElement("div");
-  addNewProject.className = "project-tasks";
+  var addNewProject = document.createElement('div');
+  addNewProject.className = 'project-tasks';
   addNewProject.innerHTML = "\n    <p>".concat(item.projectName, "</p>\n    <div class=\"controls\">\n        <img class=\"delete\" src=\"").concat(_assets_61_trash_svg__WEBPACK_IMPORTED_MODULE_1__, "\" alt=\"Trash icon for delete button\">\n    </div>\n    ");
-  var projectsList = document.querySelector(".list-of-projects");
+  var projectsList = document.querySelector('.list-of-projects');
   projectsList.insertAdjacentElement('beforeend', addNewProject);
 }; // Insert project names on dropdown options in Add Task form
 
@@ -106,33 +103,33 @@ var projectCategoryOptions = function projectCategoryOptions(option) {
   var dropdownProjectOption = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.createElement('option');
   dropdownProjectOption.dataset.projectOption = "".concat(option.projectName);
   dropdownProjectOption.textContent = "".concat(option.projectName);
-  var projectNamesOptions = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("projectName");
+  var projectNamesOptions = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('projectName');
   projectNamesOptions.insertAdjacentElement('beforeend', dropdownProjectOption);
 }; // Create new task in ToDo's main
 
 
 var newTaskDetails = function newTaskDetails(details) {
-  var taskBodyList = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.createElement("ul");
-  taskBodyList.className = "task-body-list";
+  var taskBodyList = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.createElement('ul');
+  taskBodyList.className = 'task-body-list';
   taskBodyList.dataset.projectCategory = "".concat(details.project);
   taskBodyList.innerHTML = "\n        <li class=\"input-checkbox-body tasks-col-body\"><input type=\"checkbox\" class=\"task-checkbox\"></li>\n        <li data-label=\"Task:\" class=\"tasks-col-body task-name task-content\">".concat(details.task, "</li>\n        <li data-label=\"Due:\" class=\"tasks-col-body task-date task-content\">").concat(details.date, "</li>\n        <li data-label=\"Project:\" class=\"tasks-col-body task-project task-content\">").concat(details.project, "</li>\n        <li data-label=\"Level:\" class=\"tasks-col-body task-level task-content\">").concat(details.level, "</li>\n        <li class=\"controls-body tasks-col-body\">\n            <img class=\"editText editTask\" src=\"").concat(_assets_26_write_svg__WEBPACK_IMPORTED_MODULE_0__, "\">\n            <img class=\"delete\" src=\"").concat(_assets_61_trash_svg__WEBPACK_IMPORTED_MODULE_1__, "\">\n        </li>\n    ");
-  var tableBody = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".task-table-body");
-  tableBody.insertAdjacentElement("beforeend", taskBodyList);
+  var tableBody = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.task-table-body');
+  tableBody.insertAdjacentElement('beforeend', taskBodyList);
 };
 
 var clearFields = function clearFields() {
-  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".set-project-name").value = '';
-  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("taskName").value = '';
-  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("dueDate").value = '';
-  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("projectName").value = '';
+  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.set-project-name').value = '';
+  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('taskName').value = '';
+  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('dueDate').value = '';
+  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('projectName').value = '';
 };
 
 var displayForm = function displayForm(target) {
-  target.classList.add("active");
+  target.classList.add('active');
 };
 
 var hideForm = function hideForm(target) {
-  target.classList.remove("active");
+  target.classList.remove('active');
 };
 
 var deleteButton = function deleteButton(target) {
@@ -144,39 +141,39 @@ var deleteButton = function deleteButton(target) {
 var checkedTask = function checkedTask(target) {
   if (target.checked === true) {
     for (var i = 1; i <= 4; ++i) {
-      target.parentElement.parentElement.children[i].classList.add("checked-task");
+      target.parentElement.parentElement.children[i].classList.add('checked-task');
     }
   } else {
     for (var _i = 1; _i <= 4; ++_i) {
-      target.parentElement.parentElement.children[_i].classList.remove("checked-task");
+      target.parentElement.parentElement.children[_i].classList.remove('checked-task');
     }
   }
 };
 
 var editAddedTask = function editAddedTask(target) {
-  var taskForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".new-task-form");
+  var taskForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.new-task-form');
   var task = target.parentElement.parentElement;
   var formTaskName = task.children[1].textContent;
   var formTaskDate = task.children[2].textContent;
   var formTaskProject = task.children[3].textContent;
   var formTaskPriority = task.children[4].textContent;
-  task.classList.add("editing");
+  task.classList.add('editing');
   editing = true;
   displayForm(taskForm);
-  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("taskName").value = formTaskName;
-  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("dueDate").value = formTaskDate;
-  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("projectName").value = formTaskProject;
-  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("levelImportance").value = formTaskPriority;
-  task.style.display = "none";
+  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('taskName').value = formTaskName;
+  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('dueDate').value = formTaskDate;
+  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('projectName').value = formTaskProject;
+  _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('levelImportance').value = formTaskPriority;
+  task.style.display = 'none';
 };
 
 var listProject = function listProject() {
   var dummyProject = [{
-    projectName: "Coding"
+    projectName: 'Coding'
   }, {
-    projectName: "Personal"
+    projectName: 'Personal'
   }, {
-    projectName: "Career"
+    projectName: 'Career'
   }];
   var newProj = dummyProject;
   newProj.forEach(function (proj) {
@@ -184,20 +181,20 @@ var listProject = function listProject() {
     projectCategoryOptions(proj);
   });
   var dummyData = [{
-    task: "Create ToDo App",
-    date: "2022-08-05",
-    project: "Coding",
-    level: "Very Important"
+    task: 'Create ToDo App',
+    date: '2022-08-05',
+    project: 'Coding',
+    level: 'Very Important'
   }, {
-    task: "Apply for Junior FED Job",
-    date: "2022-08-05",
-    project: "Career",
-    level: "Important"
+    task: 'Apply for Junior FED Job',
+    date: '2022-08-05',
+    project: 'Career',
+    level: 'Important'
   }, {
-    task: "Create Portfolio",
-    date: "2022-08-05",
-    project: "Personal",
-    level: "Less Important"
+    task: 'Create Portfolio',
+    date: '2022-08-05',
+    project: 'Personal',
+    level: 'Less Important'
   }];
   var newData = dummyData;
   newData.forEach(function (data) {
@@ -208,35 +205,35 @@ var listProject = function listProject() {
 var DOMevents = function DOMevents() {
   _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.addEventListener('click', function (e) {
     // If menu on nav-bar gets clicked
-    if (e.target.matches("#nav-menu")) {
-      var sidebar = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("sidebar");
-      sidebar.classList.toggle("active");
+    if (e.target.matches('#nav-menu')) {
+      var sidebar = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('sidebar');
+      sidebar.classList.toggle('active');
     } // If add new project on sidebar gets clicked
 
 
-    if (e.target.matches(".add-new-project")) {
-      var addProjectForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".sidebar-form");
-      e.target.style.display = "none";
+    if (e.target.matches('.add-new-project')) {
+      var addProjectForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.sidebar-form');
+      e.target.style.display = 'none';
       displayForm(addProjectForm);
     } // If "Add" or "Cancel" is clicked on sidebar form
 
 
-    if (e.target.matches("#add-project") || e.target.matches("#cancel-project")) {
-      var addNewProjectBtn = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".add-new-project");
+    if (e.target.matches('#add-project') || e.target.matches('#cancel-project')) {
+      var addNewProjectBtn = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.add-new-project');
 
-      var _addProjectForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".sidebar-form");
+      var _addProjectForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.sidebar-form');
 
-      var formTextInput = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".set-project-name").value;
+      var formTextInput = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.set-project-name').value;
       e.preventDefault();
 
-      if (e.target.matches("#add-project")) {
+      if (e.target.matches('#add-project')) {
         if (formTextInput === '') {
-          (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)("Must answer text field", "warning");
+          (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)('Must answer text field', 'warning');
         } else {
           var input = (0,_factories__WEBPACK_IMPORTED_MODULE_4__.ProjectName)(formTextInput);
 
           if (formTextInput.length > 10) {
-            (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)("Characters must not exceed 10 letters", "warning");
+            (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)('Characters must not exceed 10 letters', 'warning');
           } else {
             newProject(input);
             projectCategoryOptions(input);
@@ -246,70 +243,69 @@ var DOMevents = function DOMevents() {
       } else {
         clearFields();
         hideForm(_addProjectForm);
-        addNewProjectBtn.style.display = "block";
+        addNewProjectBtn.style.display = 'block';
       }
     } // If project names on sidebar is clicked
 
 
-    if (e.target.matches(".project-tasks")) {
+    if (e.target.matches('.project-tasks')) {
       (0,_filter__WEBPACK_IMPORTED_MODULE_5__.filterProjects)(e.target);
     } // If "Add Task" is clicked on main
 
 
-    if (e.target.matches(".add-task-btn")) {
-      var addTaskForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".new-task-form");
-      var addBtnForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector("#add-task");
-      addBtnForm.value = "Add Task";
+    if (e.target.matches('.add-task-btn')) {
+      var addTaskForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.new-task-form');
+      var addBtnForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('#add-task');
+      addBtnForm.value = 'Add Task';
       displayForm(addTaskForm);
     } // If "Add Task/Edit Task" or "Cancel" in add task form is clicked
 
 
-    if (e.target.matches("#add-task") || e.target.matches("#cancel-task")) {
+    if (e.target.matches('#add-task') || e.target.matches('#cancel-task')) {
       e.preventDefault();
-      var task = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("taskName").value;
-      var date = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("dueDate").value;
-      var project = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("projectName").value;
-      var level = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById("levelImportance").value;
-      var taskForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector(".new-task-form");
-      var editTask = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelectorAll(".editTask");
+      var task = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('taskName').value;
+      var date = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('dueDate').value;
+      var project = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('projectName').value;
+      var level = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.getElementById('levelImportance').value;
+      var taskForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.new-task-form');
 
-      if (e.target.matches("#add-task")) {
+      if (e.target.matches('#add-task')) {
         if (task === '' || date === '' || project === '' || level === '') {
-          (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)("Must fill all text fields", "warning");
+          (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)('Must fill all text fields', 'warning');
         } else {
           var details = (0,_factories__WEBPACK_IMPORTED_MODULE_4__.TaskDetails)(task, date, project, level);
           newTaskDetails(details);
           hideForm(taskForm);
           clearFields();
-          (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)("You have successfully added a new task!", "success");
+          (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)('You have successfully added a new task!', 'success');
         }
       } else {
         hideForm(taskForm);
         clearFields();
 
         if (editing) {
-          _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.task-body-list.editing').style.display = "flex";
+          _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.task-body-list.editing').style.display = 'flex';
           _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('.task-body-list.editing').classList.remove('editing');
         }
       }
-    } // If edit icon is clicked 
+    } // If edit icon is clicked
 
 
-    if (e.target.matches(".editText")) {
-      var _addBtnForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector("#add-task");
+    if (e.target.matches('.editText')) {
+      var _addBtnForm = _DOMcontent__WEBPACK_IMPORTED_MODULE_2__.d.querySelector('#add-task');
 
-      _addBtnForm.value = "Edit Task";
+      _addBtnForm.value = 'Edit Task';
       editAddedTask(e.target);
-    } // If delete icon is clicked 
+    } // If delete icon is clicked
 
 
-    if (e.target.matches(".delete")) {
+    if (e.target.matches('.delete')) {
       deleteButton(e.target);
-      (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)("Successfully removed!", "primary");
+      (0,_alerts__WEBPACK_IMPORTED_MODULE_3__.displayAlert)('Successfully removed!', 'primary');
     } // If checkbox value is checked
 
 
-    if (e.target.matches(".task-checkbox")) {
+    if (e.target.matches('.task-checkbox')) {
       checkedTask(e.target);
     }
   });
@@ -394,20 +390,20 @@ __webpack_require__.r(__webpack_exports__);
  // If each project names on sidebar is clicked
 
 var filterProjects = function filterProjects(target) {
-  var tasksProject = _DOMcontent__WEBPACK_IMPORTED_MODULE_0__.d.querySelectorAll(".task-body-list");
-  var mainName = _DOMcontent__WEBPACK_IMPORTED_MODULE_0__.d.querySelector(".name-task"); // Change name in main when project is clicked
+  var tasksProject = _DOMcontent__WEBPACK_IMPORTED_MODULE_0__.d.querySelectorAll('.task-body-list');
+  var mainName = _DOMcontent__WEBPACK_IMPORTED_MODULE_0__.d.querySelector('.name-task'); // Change name in main when project is clicked
 
   var projectName = target.firstElementChild.textContent;
   mainName.textContent = projectName;
   tasksProject.forEach(function (task) {
-    task.style.display = "flex";
+    task.style.display = 'flex';
     var category = task.dataset.projectCategory;
 
     if (category !== projectName) {
-      task.style.display = "none";
+      task.style.display = 'none';
 
-      if (projectName === "All Tasks") {
-        task.style.display = "flex";
+      if (projectName === 'All Tasks') {
+        task.style.display = 'flex';
       }
     }
   });
@@ -1377,18 +1373,18 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _app_DOMcontent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/DOMcontent.js */ "./src/app/DOMcontent.js");
-/* harmony import */ var _app_DOMevents_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/DOMevents.js */ "./src/app/DOMevents.js");
+/* harmony import */ var _app_DOMcontent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/DOMcontent */ "./src/app/DOMcontent.js");
+/* harmony import */ var _app_DOMevents__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/DOMevents */ "./src/app/DOMevents.js");
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  (0,_app_DOMcontent_js__WEBPACK_IMPORTED_MODULE_1__.DOMcontent)();
-  (0,_app_DOMevents_js__WEBPACK_IMPORTED_MODULE_2__.DOMevents)();
-  (0,_app_DOMevents_js__WEBPACK_IMPORTED_MODULE_2__.listProject)();
+  (0,_app_DOMcontent__WEBPACK_IMPORTED_MODULE_1__.DOMcontent)();
+  (0,_app_DOMevents__WEBPACK_IMPORTED_MODULE_2__.DOMevents)();
+  (0,_app_DOMevents__WEBPACK_IMPORTED_MODULE_2__.listProject)();
 });
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=main00ccb275416a07b7aa6e.js.map
+//# sourceMappingURL=mainaf5688f7734a51dd6b2e.js.map

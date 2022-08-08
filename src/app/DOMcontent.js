@@ -1,29 +1,29 @@
 export const d = document;
-export const container = d.getElementById("container")
+export const container = d.getElementById('container');
 
 const DOMcontent = () => {
-    const navUI = (() => {
-        const navbar = d.createElement("nav")
-        const navItems = d.createElement("div")
-        navItems. className = "nav-items";
-        navItems.innerHTML = `
+  const navUI = (() => {
+    const navbar = d.createElement('nav');
+    const navItems = d.createElement('div');
+    navItems.className = 'nav-items';
+    navItems.innerHTML = `
             <input type="button" class="btn" id="nav-menu">
             <h1 class="nav-logo">ToDo List</h1>
         `;
-    
-        navbar.appendChild(navItems)
-    
-        const body = d.querySelector("body")
-        body.insertAdjacentElement('afterbegin', navbar)
-    })()
-    
-    const sidebarUI = (() => {
-        const sidebar = d.createElement("aside")
-        sidebar.setAttribute("id", "sidebar")
-        const sidebarContent = d.createElement("div")
-        sidebarContent.className = "sidebar-content"
-        sidebarContent.setAttribute = "sidebar-content"
-        sidebarContent.innerHTML = `
+
+    navbar.appendChild(navItems);
+
+    const body = d.querySelector('body');
+    body.insertAdjacentElement('afterbegin', navbar);
+  })();
+
+  const sidebarUI = (() => {
+    const sidebar = d.createElement('aside');
+    sidebar.setAttribute('id', 'sidebar');
+    const sidebarContent = d.createElement('div');
+    sidebarContent.className = 'sidebar-content';
+    sidebarContent.setAttribute = 'sidebar-content';
+    sidebarContent.innerHTML = `
             <h2 class="sidebar-header">Projects</h2>
             <div class="list-of-projects">
                 <div class="project-tasks">
@@ -38,25 +38,25 @@ const DOMcontent = () => {
                 </div>
             </form>
             <button class="add-new-project">Add New Project</button>
-        `
-    
-        sidebar.appendChild(sidebarContent)
-    
-        container.appendChild(sidebar)
-    })()
-    
-    const mainContent = (() => {
-        const tasksMain = d.createElement("section")
-        tasksMain.setAttribute("id", "tasks-main")
-        const taskHeader = d.createElement("div")
-        taskHeader.className = "task-header"
-        taskHeader.innerHTML = `
+        `;
+
+    sidebar.appendChild(sidebarContent);
+
+    container.appendChild(sidebar);
+  })();
+
+  const mainContent = (() => {
+    const tasksMain = d.createElement('section');
+    tasksMain.setAttribute('id', 'tasks-main');
+    const taskHeader = d.createElement('div');
+    taskHeader.className = 'task-header';
+    taskHeader.innerHTML = `
             <h2 class="name-task">All Tasks</h2>
             <button class="add-task-btn">Add Task</button>
-        `
-        const taskTable = d.createElement("div")
-        taskTable.className = "task-table"
-        taskTable.innerHTML = `
+        `;
+    const taskTable = d.createElement('div');
+    taskTable.className = 'task-table';
+    taskTable.innerHTML = `
             <div class="task-table-head">
                 <ul class="task-header-list">
                     <li class="input-checkbox-header"></li>
@@ -70,17 +70,17 @@ const DOMcontent = () => {
             <div class="task-table-body">
             </div>
         `;
-    
-        tasksMain.appendChild(taskHeader)
-            tasksMain.appendChild(taskTable)
 
-        container.appendChild(tasksMain)
-    })()
+    tasksMain.appendChild(taskHeader);
+    tasksMain.appendChild(taskTable);
 
-    const addNewTaskForm = (() => {
-        const newTaskForm = d.createElement("form")
-        newTaskForm.className = "new-task-form"
-        newTaskForm.innerHTML = `
+    container.appendChild(tasksMain);
+  })();
+
+  const addNewTaskForm = (() => {
+    const newTaskForm = d.createElement('form');
+    newTaskForm.className = 'new-task-form';
+    newTaskForm.innerHTML = `
             <label for="taskName">Task Name</label>
             <input type="text" id="taskName">
             <label for="dueDate">Due Date</label>
@@ -98,13 +98,9 @@ const DOMcontent = () => {
                 <input type="button" class="new-task-btn" id="add-task" value="Add Task">
                 <input type="button" class="new-task-btn" id="cancel-task" value="Cancel">
             </div>
-        `
-        // <button class="new-task-btn" id="add-task">Add Task</button>
-        // <button class="new-task-btn" id="cancel-task">Cancel</button>
+        `;
+    container.appendChild(newTaskForm);
+  })();
+};
 
-        const container = d.getElementById("container")
-        container.appendChild(newTaskForm)
-    })()
-}
-
-export { DOMcontent }
+export { DOMcontent };
