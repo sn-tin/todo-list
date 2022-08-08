@@ -4,7 +4,6 @@ import { d } from './DOMcontent'
 import { displayAlert } from './alerts'
 import { TaskDetails, ProjectName } from './factories'
 import { filterProjects } from './filter'
-import { DOMcontent } from './DOMcontent'
 
 let editing = false
 
@@ -204,7 +203,7 @@ const DOMevents = () => {
             
         }
 
-        // If "Add Task" or "Cancel" in add task form is clicked
+        // If "Add Task/Edit Task" or "Cancel" in add task form is clicked
         if(e.target.matches("#add-task") || e.target.matches("#cancel-task")){
             e.preventDefault()
             const task = d.getElementById("taskName").value
@@ -235,14 +234,14 @@ const DOMevents = () => {
             }
         }
 
-        // If "Edit" icon is clicked 
+        // If edit icon is clicked 
         if(e.target.matches(".editText")){
             const addBtnForm = d.querySelector("#add-task")
             addBtnForm.value = "Edit Task"
             editAddedTask(e.target)
         }
 
-        // If "Delete" icon is clicked 
+        // If delete icon is clicked 
         if(e.target.matches(".delete")){
             deleteButton(e.target)
             displayAlert("Successfully removed!", "primary")
