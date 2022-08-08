@@ -4,7 +4,7 @@
     height: 100vh;
     background-color: $light-pink;
     padding: 30px 20px;
-    position: absolute;
+    position: relative;
     z-index: 1;
     animation: slideSidebar 0.2s linear forwards;
 }
