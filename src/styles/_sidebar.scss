@@ -1,0 +1,83 @@
+#sidebar {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: $light-pink;
+    padding: 30px 20px;
+    position: absolute;
+    z-index: 1;
+    animation: slideSidebar 0.2s linear forwards;
+}
+
+.sidebar-header {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: $semi-bold;
+    margin-bottom: 20px;
+}
+
+.project-tasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.project-tasks, .set-project-name {
+    @include sidebarButtons(#FFFFFF, #000000, $medium);
+}
+
+.sidebar-form {
+    display: none;
+}
+
+.sidebar-btn-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
+.sidebar-form-btn {
+    border: none;
+    padding: 5px 5px;
+    width: 50%;
+}
+
+#add-project {
+    @include sidebarButtons($dark-pink, #FFFFFF, $extra-bold)
+}
+
+#cancel-project {
+    @include sidebarButtons(#ffffff, #000000, $extra-bold);
+}
+
+.editText, .delete {
+    width: 25px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.add-new-project {
+    @include sidebarButtons($dark-pink, #FFFFFF, $semi-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include plus;
+}
+
+@keyframes slideSidebar {
+    0% {
+        display: none;
+        width: 0;
+    }
+
+    100% {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #sidebar {
+        width: 350px !important;
+    }
+}
+

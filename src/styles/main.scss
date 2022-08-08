@@ -1,0 +1,36 @@
+// add bootstrap
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import './variables';
+@import './add-by-javascript';
+@import './navbar';
+@import './sidebar';
+@import './taskMain';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-bottom: 0;
+}
+
+body {
+    font-family: $font;
+    background-color: #FFFFFF;
+}
+
+input[type=button], button {
+    cursor: pointer;
+}
+
+.alert {
+    text-align: center;
+    width: 300px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+

@@ -1,0 +1,31 @@
+nav {
+    background-color: $dark-pink;
+    padding: 15px 20px;
+    box-shadow: 5px 0 10px #00000054;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#nav-menu {
+    width: 25px;
+    height: 25px;
+    background-image: url("../assets/82-menu-3.svg");
+    background-size: contain;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+}
+
+.nav-logo {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: $extra-bold;
+    color: #FFFFFF;
+    margin-left: 5%;
+}

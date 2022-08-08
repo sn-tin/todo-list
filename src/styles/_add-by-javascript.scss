@@ -1,0 +1,31 @@
+// Class to show forms
+.active {
+    display: block !important;
+}
+// Class to add styles when button is clicked
+// .active-button {
+//     box-shadow: 0px 0px 17px 3px rgba(244,124,124,0.75);
+// -webkit-box-shadow: 0px 0px 17px 3px rgba(244,124,124,0.75);
+// -moz-box-shadow: 0px 0px 17px 3px rgba(244,124,124,0.75);
+// }
+// Class to add styles when options on "Level of Importance" is clicked
+.important {
+    color: $important;
+    font-weight: $bold;
+}
+
+.very-important {
+    color: $very-important;
+    font-weight: $bold;
+}
+
+.less-important {
+    color: $less-important;
+    font-weight: $bold;
+}
+// Class to add styles when checkbox is clicked
+.checked-task {
+    text-decoration-color: $dark-pink;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+}

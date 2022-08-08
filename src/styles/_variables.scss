@@ -1,0 +1,48 @@
+$font: 'Poppins', sans-serif;
+$extra-bold: 800;
+$bold: 700;
+$semi-bold: 600;
+$medium: 500;
+$regular: 400;
+/* Main Colors */
+$dark-pink: #F47C7C;
+$very-light-pink: #FFF2F2;
+$light-pink: #FAD4D4;
+/* Level of Importance Colors */
+$very-important: #FF5D5D;
+$important:#FFBF86;
+$less-important: #94B49F;
+
+@mixin sidebarButtons($bg-color, $text-color, $weight) {
+    width: 100%;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    font-weight: $weight;
+    color: $text-color;
+    background-color: $bg-color;
+    border: 1px solid $dark-pink;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+}
+
+@mixin level($bg-color) {
+    width: 250px;
+        font-weight: $bold;
+        color: #FFFFFF;
+        background-color: $bg-color;
+        margin: 0 10px;
+        padding: 8px;
+        border-radius: 100vmax;
+}
+
+@mixin plus {
+    &::before {
+        content: '';
+        padding: 10px;
+        margin-right: 10px;
+        background-image: url("../assets/85-close.svg");
+        background-size: 28px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
