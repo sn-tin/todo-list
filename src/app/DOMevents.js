@@ -52,7 +52,7 @@ const newTaskDetails = (details) => {
     tableBody.insertAdjacentElement("beforeend", taskBodyList)
 }
 
-const clearFields = (item) => {
+const clearFields = () => {
     d.querySelector(".set-project-name").value = ''
     d.getElementById("taskName").value = ''
     d.getElementById("dueDate").value = ''
@@ -75,24 +75,32 @@ const deleteButton = (target) => {
 
 const checkedTask = (target) => {
     if(target.checked === true) {
-        target.parentElement.nextElementSibling.classList.add("checked-task")
+        for(let i = 1; i <= 4; ++i){
+            target.parentElement.parentElement.children[i].classList.add("checked-task")
+        }
     } else {
-        target.parentElement.nextElementSibling.classList.remove("checked-task")
+        for(let i = 1; i <= 4; ++i){
+            target.parentElement.parentElement.children[i].classList.remove("checked-task")
+        }
     }
 }
 
-const editTask = (target) => {
-    const taskForm = d.querySelector(".new-task-form")
-    const formTaskName = target.parentElement.parentElement.children[1].textContent
-    const formTaskDate = target.parentElement.parentElement.children[2].textContent
-    const formTaskProject = target.parentElement.parentElement.children[3].textContent
-    const formTaskPriority = target.parentElement.parentElement.children[4].textContent
-    displayForm(taskForm)
-    d.getElementById("taskName").value = formTaskName
-    d.getElementById("dueDate").value = formTaskDate
-    d.getElementById("projectName").value = formTaskProject
-    d.getElementById("levelImportance").value = formTaskPriority
-}
+// const editTask = (target) => {
+//     const taskForm = d.querySelector(".new-task-form")
+//     const formTaskName = target.parentElement.parentElement.children[1].textContent
+//     const formTaskDate = target.parentElement.parentElement.children[2].textContent
+//     const formTaskProject = target.parentElement.parentElement.children[3].textContent
+//     const formTaskPriority = target.parentElement.parentElement.children[4].textContent
+//     displayForm(taskForm)
+//     d.getElementById("taskName").value = formTaskName
+//     d.getElementById("dueDate").value = formTaskDate
+//     d.getElementById("projectName").value = formTaskProject
+//     d.getElementById("levelImportance").value = formTaskPriority
+// }
+
+// const editTask = (target) => {
+
+// }
 
 const listProject = () => {
     const dummyProject = [
