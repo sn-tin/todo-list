@@ -13,7 +13,7 @@ const newProject = (item) => {
     addNewProject.innerHTML = `
     <p>${item.projectName}</p>
     <div class="controls">
-        <img class="editText" src="${textEditIcon}" alt="Pen icon for edit text button">
+        <img class="editText editProjectName" src="${textEditIcon}" alt="Pen icon for edit text button">
         <img class="delete" src="${deleteIcon}" alt="Trash icon for delete button">
     </div>
     `;
@@ -44,7 +44,7 @@ const newTaskDetails = (details) => {
         <li data-label="Project:" class="tasks-col-body task-project task-content">${details.project}</li>
         <li data-label="Level:" class="tasks-col-body task-level task-content">${details.level}</li>
         <li class="controls-body tasks-col-body">
-            <img class="editText" src="${textEditIcon}">
+            <img class="editText editTask" src="${textEditIcon}">
             <img class="delete" src="${deleteIcon}">
         </li>
     `
@@ -85,18 +85,19 @@ const checkedTask = (target) => {
     }
 }
 
-// const editTask = (target) => {
-//     const taskForm = d.querySelector(".new-task-form")
-//     const formTaskName = target.parentElement.parentElement.children[1].textContent
-//     const formTaskDate = target.parentElement.parentElement.children[2].textContent
-//     const formTaskProject = target.parentElement.parentElement.children[3].textContent
-//     const formTaskPriority = target.parentElement.parentElement.children[4].textContent
-//     displayForm(taskForm)
-//     d.getElementById("taskName").value = formTaskName
-//     d.getElementById("dueDate").value = formTaskDate
-//     d.getElementById("projectName").value = formTaskProject
-//     d.getElementById("levelImportance").value = formTaskPriority
-// }
+const editAddedTask = (target) => {
+    const taskForm = d.querySelector(".new-task-form")
+    const formTaskName = target.parentElement.parentElement.children[1].textContent
+    const formTaskDate = target.parentElement.parentElement.children[2].textContent
+    const formTaskProject = target.parentElement.parentElement.children[3].textContent
+    const formTaskPriority = target.parentElement.parentElement.children[4].textContent
+    displayForm(taskForm)
+    d.getElementById("taskName").value = formTaskName
+    d.getElementById("dueDate").value = formTaskDate
+    d.getElementById("projectName").value = formTaskProject
+    d.getElementById("levelImportance").value = formTaskPriority
+    // target.parentElement.parentElement.style.display = "none"
+}
 
 // const editTask = (target) => {
 
@@ -177,12 +178,7 @@ const DOMevents = () => {
                     if(formTextInput.length > 10){
                         displayAlert("Characters must not exceed 10 letters", "warning")
                     } else {
-                        newProject(input)
-                        projectCategoryOptions(input)
-                        clearFields()
-                        hideForm(addProjectForm)
-                        addNewProjectBtn.style.display = "block"
-                        displayAlert("Successfully added!", "success")
+                        
                     }
                 }
             } else {
@@ -201,6 +197,8 @@ const DOMevents = () => {
         if(e.target.matches(".add-task-btn")){
             const addTaskForm = d.querySelector(".new-task-form")
             displayForm(addTaskForm)
+            const taskForm = d.querySelector(".new-task-form")
+            addTaskForm.dataset.formMode = "Add Task"
         }
 
         // If "Add Task" or "Cancel" in add task form is clicked
@@ -211,6 +209,9 @@ const DOMevents = () => {
             const project = d.getElementById("projectName").value
             const level = d.getElementById("levelImportance").value
             const taskForm = d.querySelector(".new-task-form")
+
+            const editTask = d.querySelector(".editTask")
+
             if(e.target.matches("#add-task")){
                 if(task === '' || date === '' || project === '' || level === ''){
                     displayAlert("Must fill all text fields", "warning")
@@ -220,16 +221,36 @@ const DOMevents = () => {
                     hideForm(taskForm)
                     clearFields()
                     displayAlert("You have successfully added a new task!", "success")
+
+                    if(taskForm.dataset.formMode === "Edit Task"){
+                        editAddedTask(editTask)
+                        hideForm(taskForm)
+                        editTask.parentElement.parentElement.remove()
+                    }
                 }
             } else {
                 hideForm(taskForm)
                 clearFields()
+
+                if(taskForm.dataset.formMode === "Edit Task"){
+                    hideForm(taskForm)
+                    clearFields()
+                    editTask.parentElement.parentElement.style.display = "flex"
+                }
             }
         }
 
         // If "Edit" icon is clicked 
         if(e.target.matches(".editText")){
-            editTask(e.target)
+            if(e.target.matches(".editProjectName")){
+                console.log("This is a project name")
+            }
+            if(e.target.matches(".editTask")){
+                const taskForm = d.querySelector(".new-task-form")
+                taskForm.dataset.formMode = "Edit Task"
+                editAddedTask(e.target)
+            }
+            // editTask(e.target)
         }
 
         // If "Delete" icon is clicked 

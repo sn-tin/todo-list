@@ -79,6 +79,7 @@ const DOMcontent = () => {
 
     const addNewTaskForm = (() => {
         const newTaskForm = d.createElement("form")
+        newTaskForm.dataset.formMode = "Add Task"
         newTaskForm.className = "new-task-form"
         newTaskForm.innerHTML = `
             <label for="taskName">Task Name</label>
