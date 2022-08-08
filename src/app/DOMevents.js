@@ -6,6 +6,8 @@ import { TaskDetails, ProjectName } from './factories'
 import { filterProjects } from './filter'
 import { DOMcontent } from './DOMcontent'
 
+let editing = false
+
 // Create new project in sidebar
 const newProject = (item) => {
     const addNewProject = document.createElement("div");
@@ -13,7 +15,6 @@ const newProject = (item) => {
     addNewProject.innerHTML = `
     <p>${item.projectName}</p>
     <div class="controls">
-        <img class="editText editProjectName" src="${textEditIcon}" alt="Pen icon for edit text button">
         <img class="delete" src="${deleteIcon}" alt="Trash icon for delete button">
     </div>
     `;
@@ -87,21 +88,20 @@ const checkedTask = (target) => {
 
 const editAddedTask = (target) => {
     const taskForm = d.querySelector(".new-task-form")
-    const formTaskName = target.parentElement.parentElement.children[1].textContent
-    const formTaskDate = target.parentElement.parentElement.children[2].textContent
-    const formTaskProject = target.parentElement.parentElement.children[3].textContent
-    const formTaskPriority = target.parentElement.parentElement.children[4].textContent
+    const task = target.parentElement.parentElement
+    const formTaskName = task.children[1].textContent
+    const formTaskDate = task.children[2].textContent
+    const formTaskProject = task.children[3].textContent
+    const formTaskPriority = task.children[4].textContent
+    task.classList.add("editing")
+    editing = true
     displayForm(taskForm)
     d.getElementById("taskName").value = formTaskName
     d.getElementById("dueDate").value = formTaskDate
     d.getElementById("projectName").value = formTaskProject
     d.getElementById("levelImportance").value = formTaskPriority
-    // target.parentElement.parentElement.style.display = "none"
+    task.style.display = "none"
 }
-
-// const editTask = (target) => {
-
-// }
 
 const listProject = () => {
     const dummyProject = [
@@ -196,9 +196,10 @@ const DOMevents = () => {
         // If "Add Task" is clicked on main
         if(e.target.matches(".add-task-btn")){
             const addTaskForm = d.querySelector(".new-task-form")
+            const addBtnForm = d.querySelector("#add-task")
+            addBtnForm.value = "Add Task"
             displayForm(addTaskForm)
-            const taskForm = d.querySelector(".new-task-form")
-            addTaskForm.dataset.formMode = "Add Task"
+            
         }
 
         // If "Add Task" or "Cancel" in add task form is clicked
@@ -210,7 +211,7 @@ const DOMevents = () => {
             const level = d.getElementById("levelImportance").value
             const taskForm = d.querySelector(".new-task-form")
 
-            const editTask = d.querySelector(".editTask")
+            const editTask = d.querySelectorAll(".editTask")
 
             if(e.target.matches("#add-task")){
                 if(task === '' || date === '' || project === '' || level === ''){
@@ -221,42 +222,27 @@ const DOMevents = () => {
                     hideForm(taskForm)
                     clearFields()
                     displayAlert("You have successfully added a new task!", "success")
-
-                    if(taskForm.dataset.formMode === "Edit Task"){
-                        editAddedTask(editTask)
-                        hideForm(taskForm)
-                        editTask.parentElement.parentElement.remove()
-                    }
                 }
             } else {
                 hideForm(taskForm)
                 clearFields()
-
-                if(taskForm.dataset.formMode === "Edit Task"){
-                    hideForm(taskForm)
-                    clearFields()
-                    editTask.parentElement.parentElement.style.display = "flex"
+                if(editing) {
+                    d.querySelector('.task-body-list.editing').style.display = "flex";
+                    d.querySelector('.task-body-list.editing').classList.remove('editing')
                 }
             }
         }
 
         // If "Edit" icon is clicked 
         if(e.target.matches(".editText")){
-            if(e.target.matches(".editProjectName")){
-                console.log("This is a project name")
-            }
-            if(e.target.matches(".editTask")){
-                const taskForm = d.querySelector(".new-task-form")
-                taskForm.dataset.formMode = "Edit Task"
-                editAddedTask(e.target)
-            }
-            // editTask(e.target)
+            const addBtnForm = d.querySelector("#add-task")
+            addBtnForm.value = "Edit Task"
+            editAddedTask(e.target)
         }
 
         // If "Delete" icon is clicked 
         if(e.target.matches(".delete")){
             deleteButton(e.target)
-            console.log(e.target.textContent)
             displayAlert("Successfully removed!", "primary")
         }
 

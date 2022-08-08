@@ -79,7 +79,6 @@ const DOMcontent = () => {
 
     const addNewTaskForm = (() => {
         const newTaskForm = d.createElement("form")
-        newTaskForm.dataset.formMode = "Add Task"
         newTaskForm.className = "new-task-form"
         newTaskForm.innerHTML = `
             <label for="taskName">Task Name</label>
@@ -96,11 +95,13 @@ const DOMcontent = () => {
                 <option id="less-important" value="Less Important">Less Important</option>
             </select>
             <div class="new-task-form-btn">
-                <button class="new-task-btn" id="add-task">Add Task</button>
-                <button class="new-task-btn" id="cancel-task">Cancel</button>
+                <input type="button" class="new-task-btn" id="add-task" value="Add Task">
+                <input type="button" class="new-task-btn" id="cancel-task" value="Cancel">
             </div>
         `
-    
+        // <button class="new-task-btn" id="add-task">Add Task</button>
+        // <button class="new-task-btn" id="cancel-task">Cancel</button>
+
         const container = d.getElementById("container")
         container.appendChild(newTaskForm)
     })()
