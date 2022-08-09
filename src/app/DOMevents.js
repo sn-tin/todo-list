@@ -14,7 +14,7 @@ const newProject = (item) => {
   addNewProject.innerHTML = `
     <p>${item.projectName}</p>
     <div class="controls">
-        <img class="delete" src="${deleteIcon}" alt="Trash icon for delete button">
+        <img class="delete deleteProject" src="${deleteIcon}" alt="Trash icon for delete button">
     </div>
     `;
 
@@ -45,7 +45,7 @@ const newTaskDetails = (details) => {
         <li data-label="Level:" class="tasks-col-body task-level task-content">${details.level}</li>
         <li class="controls-body tasks-col-body">
             <img class="editText editTask" src="${textEditIcon}">
-            <img class="delete" src="${deleteIcon}">
+            <img class="delete deleteTask" src="${deleteIcon}">
         </li>
     `;
   const tableBody = d.querySelector('.task-table-body');
@@ -69,8 +69,10 @@ const hideForm = (target) => {
 
 const deleteButton = (target) => {
   target.parentElement.parentElement.remove();
-  const projectName = target.parentElement.parentElement.firstElementChild.textContent;
-  d.querySelector(`[data-project-option="${projectName}"]`).remove();
+  if(target.matches(".deleteProject")){
+    const projectName = target.parentElement.parentElement.firstElementChild.textContent;
+    d.querySelector(`[data-project-option="${projectName}"]`).remove();
+  }
 };
 
 const checkedTask = (target) => {
