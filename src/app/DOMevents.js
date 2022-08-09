@@ -211,23 +211,26 @@ const DOMevents = () => {
       const level = d.getElementById('levelImportance').value;
       const taskForm = d.querySelector('.new-task-form');
 
-      if (e.target.matches('#add-task')) {
-        if (task === '' || date === '' || project === '' || level === '') {
-          displayAlert('Must fill all text fields', 'warning');
-        } else {
-          const details = TaskDetails(task, date, project, level);
-          newTaskDetails(details);
+      switch(true){
+        case e.target.matches('#add-task'):
+          if (task === '' || date === '' || project === '' || level === '') {
+            displayAlert('Must fill all text fields', 'warning');
+          } else {
+            const details = TaskDetails(task, date, project, level);
+            newTaskDetails(details);
+            hideForm(taskForm);
+            clearFields();
+            displayAlert('You have successfully added a new task!', 'success');
+          }
+        break;
+        case e.target.matches('#cancel-task'):
           hideForm(taskForm);
           clearFields();
-          displayAlert('You have successfully added a new task!', 'success');
-        }
-      } else {
-        hideForm(taskForm);
-        clearFields();
-        if (editing) {
-          d.querySelector('.task-body-list.editing').style.display = 'flex';
-          d.querySelector('.task-body-list.editing').classList.remove('editing');
-        }
+          if (editing) {
+            d.querySelector('.task-body-list.editing').style.display = 'flex';
+            d.querySelector('.task-body-list.editing').classList.remove('editing');
+          }
+        break;
       }
     }
 
