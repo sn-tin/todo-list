@@ -14,7 +14,7 @@ const newProject = (item) => {
   addNewProject.innerHTML = `
     <p>${item.projectName}</p>
     <div class="controls">
-        <img class="delete deleteProject" src="${deleteIcon}" alt="Trash icon for delete button">
+        <button class="delete deleteProject" alt="Trash icon for delete button"></button>
     </div>
     `;
 
@@ -44,8 +44,8 @@ const newTaskDetails = (details) => {
         <li data-label="Project:" class="tasks-col-body task-project task-content">${details.project}</li>
         <li data-label="Level:" class="tasks-col-body task-level task-content">${details.level}</li>
         <li class="controls-body tasks-col-body">
-            <img class="editText editTask" src="${textEditIcon}">
-            <img class="delete deleteTask" src="${deleteIcon}">
+            <button class="editText editTask"></button>
+            <button class="delete deleteTask"></button>
         </li>
     `;
   const tableBody = d.querySelector('.task-table-body');

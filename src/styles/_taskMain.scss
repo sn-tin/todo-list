@@ -83,6 +83,14 @@
     width: 16%;
 }
 
+.deleteTask {
+    @include controls-btn($delete-icon);
+}
+
+.editTask {
+    @include controls-btn($edit-icon)
+}
+
 input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;

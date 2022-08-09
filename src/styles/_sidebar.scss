@@ -49,10 +49,13 @@
     @include sidebarButtons(#ffffff, #000000, $extra-bold);
 }
 
-.editText, .delete {
-    width: 25px;
-    margin-left: 5px;
-    cursor: pointer;
+// .editText, .delete {
+//     margin-left: 5px;
+//     cursor: pointer;
+// }
+
+.deleteProject {
+    @include controls-btn($delete-icon)
 }
 
 .add-new-project {
