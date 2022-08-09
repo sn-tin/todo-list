@@ -169,23 +169,26 @@ const DOMevents = () => {
       const addProjectForm = d.querySelector('.sidebar-form');
       const formTextInput = d.querySelector('.set-project-name').value;
       e.preventDefault();
-      if (e.target.matches('#add-project')) {
-        if (formTextInput === '') {
-          displayAlert('Must answer text field', 'warning');
-        } else {
-          const input = ProjectName(formTextInput);
-          if (formTextInput.length > 10) {
-            displayAlert('Characters must not exceed 10 letters', 'warning');
+      switch(true){
+        case e.target.matches('#add-project'):
+          if (formTextInput === '') {
+            displayAlert('Must answer text field', 'warning');
           } else {
-            newProject(input);
-            projectCategoryOptions(input);
-            clearFields();
+            const input = ProjectName(formTextInput);
+            if (formTextInput.length > 10) {
+              displayAlert('Characters must not exceed 10 letters', 'warning');
+            } else {
+              newProject(input);
+              projectCategoryOptions(input);
+              clearFields();
+            }
           }
-        }
-      } else {
-        clearFields();
-        hideForm(addProjectForm);
-        addNewProjectBtn.style.display = 'block';
+        break;
+        case e.target.matches('#cancel-project'): 
+          clearFields();
+          hideForm(addProjectForm);
+          addNewProjectBtn.style.display = 'block';
+        break;
       }
     }
 
