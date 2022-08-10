@@ -13,8 +13,8 @@ $very-important: #FF5D5D;
 $important:#FFBF86;
 $less-important: #94B49F;
 /* Images */
-$delete-icon: "../assets/61-trash.svg";
-$edit-icon: "../assets/26-write.svg";
+$delete-icon: url("../assets/61-trash.svg");
+$edit-icon: url("../assets/26-write.svg");
 
 @mixin sidebarButtons($bg-color, $text-color, $weight) {
     width: 100%;
@@ -40,7 +40,7 @@ $edit-icon: "../assets/26-write.svg";
 
 @mixin controls-btn($img) {
     background-color: transparent;
-    background-image: url($img);
+    background-image: $img;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
