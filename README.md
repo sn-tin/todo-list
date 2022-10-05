@@ -1,15 +1,4 @@
 # To-Do List App
-
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Links](#links)
-  - [Built with](#built-with)
-  - [Running the App Locally](#running-the-app-locally)
-- [Author](#author)
-
-## Overview
 A to-do list app to keep track of your tasks.
 
 ### The challenge
