@@ -1,9 +1,10 @@
 import './styles/main.scss';
 import { DOMcontent } from './app/DOMcontent';
-import { DOMevents, listProject } from './app/DOMevents';
+import { DOMevents } from './app/DOMevents';
+import { getTasks } from './app/storage'
 
 document.addEventListener('DOMContentLoaded', () => {
   DOMcontent();
   DOMevents();
-  listProject();
+  getTasks();
 });

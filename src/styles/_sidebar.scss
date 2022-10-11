@@ -6,7 +6,6 @@
     padding: 30px 20px;
     position: absolute;
     z-index: 1;
-    animation: slideSidebar 0.2s linear forwards;
 }
 
 .sidebar-header {
@@ -49,11 +48,6 @@
     @include sidebarButtons(#ffffff, #000000, $extra-bold);
 }
 
-// .editText, .delete {
-//     margin-left: 5px;
-//     cursor: pointer;
-// }
-
 .deleteProject {
     @include controls-btn($delete-icon)
 }
@@ -64,18 +58,6 @@
     align-items: center;
     justify-content: center;
     @include plus;
-}
-
-@keyframes slideSidebar {
-    0% {
-        display: none;
-        width: 0;
-    }
-
-    100% {
-        display: block;
-        width: 100%;
-    }
 }
 
 @media screen and (min-width: 768px) {

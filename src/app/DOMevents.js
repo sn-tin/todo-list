@@ -1,9 +1,8 @@
-import textEditIcon from '../assets/26-write.svg';
-import deleteIcon from '../assets/61-trash.svg';
 import { d } from './DOMcontent';
 import { displayAlert } from './alerts';
 import { TaskDetails, ProjectName } from './factories';
 import { filterProjects } from './filter';
+import { removeTasks, saveLocalTasks } from "./storage"
 
 let editing = false;
 
@@ -17,7 +16,7 @@ const newProject = (item) => {
         <button class="delete deleteProject" alt="Trash icon for delete button"></button>
     </div>
     `;
-
+  projectCategoryOptions(item)  
   const projectsList = document.querySelector('.list-of-projects');
   projectsList.insertAdjacentElement('beforeend', addNewProject);
 };
@@ -104,50 +103,18 @@ const editAddedTask = (target) => {
   task.style.display = 'none';
 };
 
-const listProject = () => {
-  const dummyProject = [
-    {
-      projectName: 'Coding',
-    },
-    {
-      projectName: 'Personal',
-    },
-    {
-      projectName: 'Career',
-    },
-  ];
-  const newProj = dummyProject;
-  newProj.forEach((proj) => {
-    newProject(proj);
-    projectCategoryOptions(proj);
-  });
+// const listProject = () => {
 
-  const dummyData = [
-    {
-      task: 'Create ToDo App',
-      date: '2022-08-05',
-      project: 'Coding',
-      level: 'Very Important',
-    },
-    {
-      task: 'Apply for Junior FED Job',
-      date: '2022-08-05',
-      project: 'Career',
-      level: 'Important',
-    },
-    {
-      task: 'Create Portfolio',
-      date: '2022-08-05',
-      project: 'Personal',
-      level: 'Less Important',
-    },
-  ];
+//   newProj.forEach((proj) => {
+//     newProject(proj);
+//     projectCategoryOptions(proj);
+//   });
 
-  const newData = dummyData;
-  newData.forEach((data) => {
-    newTaskDetails(data);
-  });
-};
+//   newData.forEach((data) => {
+//     newTaskDetails(data);
+//   });
+
+// };
 
 const DOMevents = () => {
   d.addEventListener('click', (e) => {
@@ -179,7 +146,6 @@ const DOMevents = () => {
               displayAlert('Characters must not exceed 10 letters', 'warning');
             } else {
               newProject(input);
-              projectCategoryOptions(input);
               clearFields();
             }
           }
@@ -221,6 +187,7 @@ const DOMevents = () => {
           } else {
             const details = TaskDetails(task, date, project, level);
             newTaskDetails(details);
+            saveLocalTasks(details);
             hideForm(taskForm);
             clearFields();
             displayAlert('You have successfully added a new task!', 'success');
@@ -248,6 +215,7 @@ const DOMevents = () => {
     if (e.target.matches('.delete')) {
       deleteButton(e.target);
       displayAlert('Successfully removed!', 'primary');
+      removeTasks(e.target)
     }
 
     // If checkbox value is checked
@@ -257,4 +225,4 @@ const DOMevents = () => {
   });
 };
 
-export { DOMevents, listProject };
+export { DOMevents, newTaskDetails, newProject };
