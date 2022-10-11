@@ -1,4 +1,4 @@
-import { newTaskDetails } from "./DOMevents";
+import { newTaskDetails, newProject } from "./DOMevents";
 
 const saveLocalTasks = (task) => {
   let tasks;
@@ -19,8 +19,8 @@ const getTasks = () => {
   } else {
     tasks = JSON.parse(localStorage.getItem('tasks'));
   }
-  tasks.forEach(function(todo) {
-    newTaskDetails(todo)
+  tasks.forEach((task) => {
+    newTaskDetails(task)
   })
 }
 

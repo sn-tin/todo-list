@@ -103,19 +103,6 @@ const editAddedTask = (target) => {
   task.style.display = 'none';
 };
 
-// const listProject = () => {
-
-//   newProj.forEach((proj) => {
-//     newProject(proj);
-//     projectCategoryOptions(proj);
-//   });
-
-//   newData.forEach((data) => {
-//     newTaskDetails(data);
-//   });
-
-// };
-
 const DOMevents = () => {
   d.addEventListener('click', (e) => {
     // If menu on nav-bar gets clicked
